@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zed Precision CAD | Precision in Every Detail</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0056b3;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #003d82;
+        }
+
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 46px;
+            width: auto;
+            display: block;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .nav ul li {
+            margin-left: 20px;
+        }
+
+        .nav ul li a {
+            font-weight: 700;
+            color: #1a1a1a;
+            padding: 5px 0;
+        }
+
+        .nav ul li a.active {
+            border-bottom: 2px solid #ff6b00;
+        }
+
+        .lang-select {
+            margin-left: auto;
+            min-width: 120px;
+        }
+
+        .lang-select select {
+            padding: 6px 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+            font-size: 12px;
+            background: #fff;
+        }
+
+        .hero {
+            background: url('placeholder-cad-bg.jpg') no-repeat center center/cover;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: rgba(26, 26, 26, 0.5);
+        }
+
+        .hero-content {
+            z-index: 10;
+            max-width: 900px;
+            padding: 20px;
+            color: #ffffff;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 15px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            font-weight: 400;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #ff6b00;
+            color: #ffffff;
+            padding: 15px 35px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s;
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
+        }
+
+        .cta-button:hover {
+            background-color: #e65c00;
+            transform: translateY(-3px);
+        }
+
+        .section {
+            padding: 80px 5%;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        .section.alt-bg {
+            background-color: #ffffff;
+        }
+
+        .section h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: #ff6b00;
+            display: block;
+            margin: 10px auto 0;
+        }
+
+        .section p.section-intro {
+            max-width: 800px;
+            margin: 20px auto 0;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .services-grid {
+            display: flex;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .service-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px 25px;
+            flex: 1 1 260px;
+            max-width: 320px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
+        }
+
+        .service-card i {
+            font-size: 38px;
+            color: #ff6b00;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #1a1a1a;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .why-us-wrapper {
+            display: flex;
+            gap: 40px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .why-text {
+            flex: 1 1 320px;
+            max-width: 500px;
+            text-align: left;
+        }
+
+        .why-text ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .why-text ul li {
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+
+        .why-text ul li i {
+            color: #ff6b00;
+            margin-right: 8px;
+        }
+
+        .why-highlight {
+            flex: 1 1 260px;
+            max-width: 360px;
+            background: linear-gradient(135deg, #ff6b00, #ff9e3d);
+            color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: left;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .why-highlight h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+
+        .why-highlight p {
+            font-size: 15px;
+        }
+
+        .about-wrapper {
+            margin-top: 40px;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .about-photo {
+            flex: 0 0 200px;
+            max-width: 220px;
+        }
+
+        .about-photo img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+            object-fit: cover;
+        }
+
+        .about-text {
+            flex: 1 1 320px;
+            max-width: 520px;
+            text-align: left;
+        }
+
+        .about-text p {
+            margin-bottom: 12px;
+            font-size: 15px;
+            color: #444;
+        }
+
+        .portfolio-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 40px;
+            justify-content: center;
+        }
+
+        .portfolio-item {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            flex: 1 1 260px;
+            max-width: 320px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+            text-align: left;
+        }
+
+        .portfolio-item span {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ff6b00;
+        }
+
+        .portfolio-item h3 {
+            font-size: 18px;
+            margin-top: 5px;
+        }
+
+        .portfolio-item p {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 40px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .contact-info {
+            flex: 1 1 260px;
+            max-width: 350px;
+            text-align: left;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        .contact-info i {
+            color: #ff6b00;
+            margin-right: 8px;
+        }
+
+        .contact-form {
+            flex: 1 1 300px;
+            max-width: 450px;
+            text-align: left;
+            background-color: #ffffff;
+            padding: 25px 20px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        .contact-form button {
+            background-color: #ff6b00;
+            color: #ffffff;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        .contact-form button:hover {
+            background-color: #e65c00;
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: #f1f1f1;
+            text-align: center;
+            padding: 20px 5%;
+            font-size: 13px;
+        }
+
+        footer a {
+            color: #ff9e3d;
+        }
+
+        @media (max-width: 900px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+            .hero p {
+                font-size: 17px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-text {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="Zed.jpg" alt="Zed Precision CAD logo">
+    </div>
+    <nav class="nav">
+        <ul>
+            <li><a href="#hero" class="nav-link active" data-key="nav_start">Home</a></li>
+            <li><a href="#services" class="nav-link" data-key="nav_services">Services</a></li>
+            <li><a href="#why-us" class="nav-link" data-key="nav_why">Why me</a></li>
+            <li><a href="#about" class="nav-link" data-key="nav_about">About</a></li>
+            <li><a href="#portfolio" class="nav-link" data-key="nav_portfolio">Portfolio</a></li>
+            <li><a href="#contact" class="nav-link" data-key="nav_contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="lang-select">
+        <select id="language-select" aria-label="Language">
+            <option value="en">English</option>
+            <option value="pl">Polski</option>
+            <option value="fr">Français</option>
+            <option value="es">Español</option>
+            <option value="pt">Português</option>
+            <option value="de">Deutsch</option>
+        </select>
+    </div>
+</header>
+
+<section class="hero" id="hero">
+    <div class="hero-content">
+        <h1 data-key="hero_title">Precision in every detail</h1>
+        <p data-key="hero_subtitle">
+            Professional 3D models, technical drawings and design support for mechanical engineering and manufacturing.
+        </p>
+        <a href="#contact" class="cta-button" data-key="hero_cta">Request a quote</a>
+    </div>
+</section>
+
+<section class="section alt-bg" id="services">
+    <h2 data-key="services_title">3D CAD services</h2>
+    <p class="section-intro" data-key="services_intro">
+        I specialise in mechanical design, 3D modelling of parts and assemblies, and production-ready technical drawings.
+    </p>
+
+    <div class="services-grid">
+        <div class="service-card">
+            <i class="fa-solid fa-cube"></i>
+            <h3 data-key="service1_title">3D modelling</h3>
+            <p data-key="service1_text">
+                Accurate models of parts and assemblies ready for manufacturing, including tooling components and fixtures.
+            </p>
+        </div>
+        <div class="service-card">
+            <i class="fa-solid fa-drafting-compass"></i>
+            <h3 data-key="service2_title">Technical drawings</h3>
+            <p data-key="service2_text">
+                Complete 2D documentation with dimensions, tolerances and surface finish symbols, aligned with industry standards.
+            </p>
+        </div>
+        <div class="service-card">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <h3 data-key="service3_title">Modifications & improvements</h3>
+            <p data-key="service3_text">
+                Updating existing projects, optimising designs for production and adapting them to your manufacturing process.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="why-us">
+    <h2 data-key="why_title">Why Zed Precision CAD</h2>
+    <p class="section-intro" data-key="why_intro">
+        I combine hands-on toolmaking experience with modern CAD skills to deliver solutions that really work on the shop floor.
+    </p>
+
+    <div class="why-us-wrapper">
+        <div class="why-text">
+            <p data-key="why_paragraph">
+                I understand the needs of production, CNC and maintenance, so every design is considered for machining, assembly and service.
+            </p>
+            <ul>
+                <li><i class="fa-solid fa-check"></i><span data-key="why_point1">Experience in tooling and mechanical engineering</span></li>
+                <li><i class="fa-solid fa-check"></i><span data-key="why_point2">Clear documentation for production and quality control</span></li>
+                <li><i class="fa-solid fa-check"></i><span data-key="why_point3">Flexible cooperation: one-off jobs or ongoing support</span></li>
+                <li><i class="fa-solid fa-check"></i><span data-key="why_point4">Communication in Polish and English</span></li>
+            </ul>
+        </div>
+
+        <div class="why-highlight">
+            <h3 data-key="why_highlight_title">Quality without compromise</h3>
+            <p data-key="why_highlight_text">
+                Every project is treated as part of a real production process – from the first idea to start-up on the machine, with focus on simple, robust and repeatable solutions.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="section alt-bg" id="about">
+    <h2 data-key="about_title">About me</h2>
+    <p class="section-intro" data-key="about_intro">
+        I am a CAD technician with tooling and CNC background, combining shop-floor practice with modern 3D design.
+    </p>
+
+    <div class="about-wrapper">
+        <div class="about-photo">
+            <img src="Iogo.jpg" alt="CAD designer portrait">
+        </div>
+        <div class="about-text">
+            <p data-key="about_p1">
+                I spent several years working as a toolmaker and CNC operator, so I understand production requirements, machine limits and maintenance reality.
+            </p>
+            <p data-key="about_p2">
+                Now I focus on advanced 3D CAD, preparing models and drawings that are easy to manufacture and clear for machinists and fitters.
+            </p>
+            <p data-key="about_p3">
+                I enjoy projects where precision, simple solutions and good communication between design office and production are important.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="portfolio">
+    <h2 data-key="portfolio_title">Sample projects</h2>
+    <p class="section-intro" data-key="portfolio_intro">
+        Here are some typical projects where I can support your design team or maintenance department.
+    </p>
+
+    <div class="portfolio-grid">
+        <div class="portfolio-item">
+            <span data-key="port1_tag">Tooling</span>
+            <h3 data-key="port1_title">Assembly fixture design</h3>
+            <p data-key="port1_text">
+                Concept, 3D model and full set of drawings for manufacturing and adjustment of the fixture.
+            </p>
+        </div>
+        <div class="portfolio-item">
+            <span data-key="port2_tag">Modification</span>
+            <h3 data-key="port2_title">Existing part adaptation</h3>
+            <p data-key="port2_text">
+                Reworked model for a new production batch with updated dimensions and tolerances.
+            </p>
+        </div>
+        <div class="portfolio-item">
+            <span data-key="port3_tag">Upgrade</span>
+            <h3 data-key="port3_title">Production line components</h3>
+            <p data-key="port3_text">
+                Small steel structures, guards, brackets and plates adapted to current safety requirements.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="section alt-bg" id="contact">
+    <h2 data-key="contact_title">Contact</h2>
+    <p class="section-intro" data-key="contact_intro">
+        Share a few details about your project and I will come back with a proposal and rough quote.
+    </p>
+
+    <div class="contact-wrapper">
+        <div class="contact-info">
+            <p data-key="contact_loc">
+                <i class="fa-solid fa-location-dot"></i>
+                Based in Purfleet-on-Thames, UK (remote work possible).
+            </p>
+            <p>
+                <i class="fa-solid fa-envelope"></i>
+                <span data-key="contact_email_label">Email:</span>
+                <a href="mailto:zedprecisioncad@gmail.com">zedprecisioncad@gmail.com</a>
+            </p>
+            <p data-key="contact_phone">
+                <i class="fa-solid fa-phone"></i>
+                Phone (UK): <a href="tel:+447401099997">07401 099 997</a>
+            </p>
+            <p data-key="contact_time">
+                <i class="fa-solid fa-clock"></i>
+                I usually reply within 24 hours on business days.
+            </p>
+        </div>
+
+        <form class="contact-form">
+            <label for="name" data-key="form_name_label">Name / company</label>
+            <input type="text" id="name" name="name" placeholder="Enter your contact details" data-key-placeholder="form_name_ph">
+
+            <label for="email" data-key="form_email_label">Email address</label>
+            <input type="email" id="email" name="email" placeholder="Your email" data-key-placeholder="form_email_ph">
+
+            <label for="message" data-key="form_msg_label">Project description</label>
+            <textarea id="message" name="message" rows="5" placeholder="Briefly describe what you need..." data-key-placeholder="form_msg_ph"></textarea>
+
+            <button type="submit" data-key="form_btn">Send enquiry</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; <span id="year"></span> Zed Precision CAD. <span data-key="footer_text">All rights reserved.</span></p>
+</footer>
+
+<script>
+    const translations = {
+        en: {
+            nav_start: "Home",
+            nav_services: "Services",
+            nav_why: "Why me",
+            nav_about: "About",
+            nav_portfolio: "Portfolio",
+            nav_contact: "Contact",
+
+            hero_title: "Precision in every detail",
+            hero_subtitle: "Professional 3D models, technical drawings and design support for mechanical engineering and manufacturing.",
+            hero_cta: "Request a quote",
+
+            services_title: "3D CAD services",
+            services_intro: "I specialise in mechanical design, 3D modelling of parts and assemblies, and production-ready technical drawings.",
+
+            service1_title: "3D modelling",
+            service1_text: "Accurate models of parts and assemblies ready for manufacturing, including tooling components and fixtures.",
+            service2_title: "Technical drawings",
+            service2_text: "Complete 2D documentation with dimensions, tolerances and surface finish symbols, aligned with industry standards.",
+            service3_title: "Modifications & improvements",
+            service3_text: "Updating existing projects, optimising designs for production and adapting them to your manufacturing process.",
+
+            why_title: "Why Zed Precision CAD",
+            why_intro: "I combine hands-on toolmaking experience with modern CAD skills to deliver solutions that really work on the shop floor.",
+            why_paragraph: "I understand the needs of production, CNC and maintenance, so every design is considered for machining, assembly and service.",
+            why_point1: "Experience in tooling and mechanical engineering",
+            why_point2: "Clear documentation for production and quality control",
+            why_point3: "Flexible cooperation: one-off jobs or ongoing support",
+            why_point4: "Communication in Polish and English",
+            why_highlight_title: "Quality without compromise",
+            why_highlight_text: "Every project is treated as part of a real production process – from the first idea to start-up on the machine, with focus on simple, robust and repeatable solutions.",
+
+            about_title: "About me",
+            about_intro: "I am a CAD technician with tooling and CNC background, combining shop-floor practice with modern 3D design.",
+            about_p1: "I spent several years working as a toolmaker and CNC operator, so I understand production requirements, machine limits and maintenance reality.",
+            about_p2: "Now I focus on advanced 3D CAD, preparing models and drawings that are easy to manufacture and clear for machinists and fitters.",
+            about_p3: "I enjoy projects where precision, simple solutions and good communication between design office and production are important.",
+
+            portfolio_title: "Sample projects",
+            portfolio_intro: "Here are some typical projects where I can support your design team or maintenance department.",
+            port1_tag: "Tooling",
+            port1_title: "Assembly fixture design",
+            port1_text: "Concept, 3D model and full set of drawings for manufacturing and adjustment of the fixture.",
+            port2_tag: "Modification",
+            port2_title: "Existing part adaptation",
+            port2_text: "Reworked model for a new production batch with updated dimensions and tolerances.",
+            port3_tag: "Upgrade",
+            port3_title: "Production line components",
+            port3_text: "Small steel structures, guards, brackets and plates adapted to current safety requirements.",
+
+            contact_title: "Contact",
+            contact_intro: "Share a few details about your project and I will come back with a proposal and rough quote.",
+            contact_loc: "Based in Purfleet-on-Thames, UK (remote work possible).",
+            contact_email_label: "Email:",
+            contact_phone: "Phone (UK): ",
+            contact_time: "I usually reply within 24 hours on business days.",
+
+            form_name_label: "Name / company",
+            form_name_ph: "Enter your contact details",
+            form_email_label: "Email address",
+            form_email_ph: "Your email",
+            form_msg_label: "Project description",
+            form_msg_ph: "Briefly describe what you need...",
+            form_btn: "Send enquiry",
+
+            footer_text: "All rights reserved."
+        },
+
+        pl: {
+            nav_start: "Start",
+            nav_services: "Usługi",
+            nav_why: "Dlaczego ja",
+            nav_about: "O mnie",
+            nav_portfolio: "Portfolio",
+            nav_contact: "Kontakt",
+
+            hero_title: "Precyzja w każdym detalu",
+            hero_subtitle: "Profesjonalne modele 3D, dokumentacja techniczna i wsparcie projektowe dla przemysłu mechanicznego i produkcji.",
+            hero_cta: "Wyceń projekt",
+
+            services_title: "Usługi CAD 3D",
+            services_intro: "Specjalizuję się w projektowaniu mechanicznym, modelowaniu części oraz tworzeniu dokumentacji zgodnej z normami przemysłowymi.",
+
+            service1_title: "Modelowanie 3D",
+            service1_text: "Tworzenie dokładnych modeli części i złożeń gotowych do produkcji, w tym elementów narzędziowych i oprzyrządowania.",
+            service2_title: "Rysunki techniczne",
+            service2_text: "Kompletna dokumentacja 2D zgodna z normami, z wymiarowaniem, tolerancjami i oznaczeniami chropowatości.",
+            service3_title: "Modyfikacje i usprawnienia",
+            service3_text: "Aktualizacja istniejących projektów, optymalizacja pod produkcję i dopasowanie do technologii wytwarzania.",
+
+            why_title: "Dlaczego Zed Precision CAD",
+            why_intro: "Łączę praktyczne doświadczenie narzędziowca z umiejętnościami nowoczesnego projektowania, aby dostarczać rozwiązania, które naprawdę działają na hali produkcyjnej.",
+            why_paragraph: "Rozumiem potrzeby produkcji, CNC i utrzymania ruchu, dlatego projekty są przemyślane pod kątem montażu, obróbki oraz serwisowania.",
+            why_point1: "Doświadczenie w branży narzędziowej i mechanicznej",
+            why_point2: "Dokumentacja czytelna dla produkcji i kontroli jakości",
+            why_point3: "Elastyczna współpraca: jednorazowe zlecenia i stałe wsparcie",
+            why_point4: "Komunikacja w języku polskim i angielskim",
+            why_highlight_title: "Jakość bez kompromisów",
+            why_highlight_text: "Każdy projekt traktuję jak element rzeczywistego procesu produkcyjnego: od pierwszej koncepcji aż po uruchomienie na maszynie. Skupiam się na prostych, powtarzalnych rozwiązaniach, które są łatwe do wdrożenia i nie generują zbędnych kosztów.",
+
+            about_title: "O mnie",
+            about_intro: "Jestem technikiem CAD z doświadczeniem w narzędziowni i obróbce CNC, łącząc praktykę z hali produkcyjnej z nowoczesnym projektowaniem 3D.",
+            about_p1: "Przez kilka lat pracowałem jako narzędziowiec i operator CNC, dzięki czemu dobrze rozumiem wymagania produkcji, ograniczenia maszyn i realia utrzymania ruchu.",
+            about_p2: "Obecnie rozwijam się w kierunku zaawansowanego projektowania CAD 3D, przygotowując modele oraz dokumentację z myślą o szybkim wdrożeniu na hali i czytelności dla wykonawców.",
+            about_p3: "Chętnie współpracuję przy projektach, gdzie liczy się precyzja, prostota rozwiązań i dobra komunikacja między biurem konstrukcyjnym a produkcją.",
+
+            portfolio_title: "Przykładowe realizacje",
+            portfolio_intro: "Poniżej kilka typów projektów, w których mogę wesprzeć Twój zespół konstrukcyjny lub dział utrzymania ruchu.",
+            port1_tag: "Oprzyrządowanie",
+            port1_title: "Projekt przyrządu montażowego",
+            port1_text: "Koncepcja, model 3D oraz pełna dokumentacja rysunkowa umożliwiająca wykonanie i regulację przyrządu.",
+            port2_tag: "Modyfikacja",
+            port2_title: "Adaptacja istniejącej części",
+            port2_text: "Przebudowa modelu pod nową serię produkcyjną z uwzględnieniem zmienionych wymiarów i tolerancji.",
+            port3_tag: "Modernizacja",
+            port3_title: "Elementy do linii produkcyjnej",
+            port3_text: "Drobne konstrukcje stalowe, osłony, uchwyty, płyty montażowe dostosowane do aktualnych wymogów BHP.",
+
+            contact_title: "Kontakt",
+            contact_intro: "Napisz kilka słów o projekcie, a odpowiem z propozycją współpracy i szacunkową wyceną.",
+            contact_loc: "Bazuję w Purfleet-on-Thames (UK), możliwa praca zdalna.",
+            contact_email_label: "Email:",
+            contact_phone: "Telefon (UK): ",
+            contact_time: "Odpowiadam zazwyczaj w ciągu 24 godzin w dni robocze.",
+
+            form_name_label: "Imię i nazwisko / firma",
+            form_name_ph: "Wpisz dane kontaktowe",
+            form_email_label: "Adres e-mail",
+            form_email_ph: "Twój e-mail",
+            form_msg_label: "Opis projektu",
+            form_msg_ph: "Krótko opisz, czego potrzebujesz...",
+            form_btn: "Wyślij zapytanie",
+
+            footer_text: "Wszelkie prawa zastrzeżone."
+        },
+
+        fr: {
+            nav_start: "Accueil",
+            nav_services: "Services",
+            nav_why: "Pourquoi moi",
+            nav_about: "À propos",
+            nav_portfolio: "Portfolio",
+            nav_contact: "Contact",
+
+            hero_title: "Précision dans chaque détail",
+            hero_subtitle: "Modèles 3D, plans techniques et support de conception pour l’industrie mécanique et la production.",
+            hero_cta: "Demander un devis",
+
+            services_title: "Services CAO 3D",
+            services_intro: "Conception mécanique, modélisation 3D de pièces et ensembles, et plans prêts pour la fabrication.",
+
+            service1_title: "Modélisation 3D",
+            service1_text: "Création de modèles précis de pièces et d’ensembles prêts pour l’usinage et le montage.",
+            service2_title: "Plans techniques",
+            service2_text: "Dossiers 2D complets avec cotation, tolérances et états de surface.",
+            service3_title: "Modifications et améliorations",
+            service3_text: "Mise à jour de projets existants et optimisation pour la production.",
+
+            why_title: "Pourquoi Zed Precision CAD",
+            why_intro: "Expérience d’atelier et compétences CAO modernes pour des solutions fiables en production.",
+            why_paragraph: "Les conceptions sont pensées pour l’usinage, l’assemblage et la maintenance.",
+            why_point1: "Expérience en outillage et mécanique",
+            why_point2: "Documentation claire pour la production et le contrôle",
+            why_point3: "Coopération flexible selon vos besoins",
+            why_point4: "Communication en polonais et en anglais",
+            why_highlight_title: "Qualité sans compromis",
+            why_highlight_text: "Des solutions simples, robustes et faciles à mettre en œuvre sur la ligne de production.",
+
+            about_title: "À propos",
+            about_intro: "Technicien CAO avec expérience en outillage et usinage CNC, je relie la pratique d’atelier à la conception 3D moderne.",
+            about_p1: "J’ai travaillé plusieurs années comme outilleur et opérateur CNC, ce qui me donne une bonne compréhension des contraintes de production.",
+            about_p2: "Je me concentre aujourd’hui sur la CAO 3D avancée, avec des modèles et plans pensés pour une fabrication rapide et fiable.",
+            about_p3: "J’apprécie les projets où la précision, la simplicité des solutions et la bonne communication avec la production sont essentielles.",
+
+            portfolio_title: "Exemples de projets",
+            portfolio_intro: "Quelques types de projets pour lesquels je peux soutenir votre équipe.",
+            port1_tag: "Outillage",
+            port1_title: "Conception de gabarit d’assemblage",
+            port1_text: "Concept, modèle 3D et plans pour la fabrication et le réglage.",
+            port2_tag: "Modification",
+            port2_title: "Adaptation de pièce existante",
+            port2_text: "Révision du modèle pour une nouvelle série avec nouvelles cotes.",
+            port3_tag: "Modernisation",
+            port3_title: "Éléments de ligne de production",
+            port3_text: "Petites structures, protections et supports conformes aux exigences de sécurité.",
+
+            contact_title: "Contact",
+            contact_intro: "Décrivez brièvement votre projet et je vous répondrai avec une proposition.",
+            contact_loc: "Basé à Purfleet-on-Thames, Royaume-Uni (travail à distance possible).",
+            contact_email_label: "Email :",
+            contact_phone: "Téléphone (R.-U.) : ",
+            contact_time: "Je réponds généralement sous 24 h les jours ouvrés.",
+
+            form_name_label: "Nom / société",
+            form_name_ph: "Saisissez vos coordonnées",
+            form_email_label: "Adresse e-mail",
+            form_email_ph: "Votre e-mail",
+            form_msg_label: "Description du projet",
+            form_msg_ph: "Décrivez brièvement votre besoin...",
+            form_btn: "Envoyer",
+
+            footer_text: "Tous droits réservés."
+        },
+
+        es: {
+            nav_start: "Inicio",
+            nav_services: "Servicios",
+            nav_why: "Por qué yo",
+            nav_about: "Sobre mí",
+            nav_portfolio: "Portfolio",
+            nav_contact: "Contacto",
+
+            hero_title: "Precisión en cada detalle",
+            hero_subtitle: "Modelos 3D profesionales, planos técnicos y soporte de diseño para la industria mecánica.",
+            hero_cta: "Pedir presupuesto",
+
+            services_title: "Servicios CAD 3D",
+            services_intro: "Diseño mecánico, modelado 3D y documentación lista para producción.",
+
+            service1_title: "Modelado 3D",
+            service1_text: "Modelos precisos de piezas y conjuntos listos para fabricación.",
+            service2_title: "Planos técnicos",
+            service2_text: "Documentación 2D con cotas, tolerancias y símbolos de acabado.",
+            service3_title: "Modificaciones y mejoras",
+            service3_text: "Actualización de proyectos existentes y optimización para producción.",
+
+            why_title: "Por qué Zed Precision CAD",
+            why_intro: "Experiencia en taller y herramientas, combinada con CAD moderno.",
+            why_paragraph: "Los diseños se preparan pensando en el mecanizado, montaje y mantenimiento.",
+            why_point1: "Experiencia en herramientas y mecánica",
+            why_point2: "Documentación clara para producción y calidad",
+            why_point3: "Colaboración flexible según el proyecto",
+            why_point4: "Comunicación en polaco e inglés",
+            why_highlight_title: "Calidad sin compromisos",
+            why_highlight_text: "Soluciones simples, robustas y repetibles, fáciles de implementar.",
+
+            about_title: "Sobre mí",
+            about_intro: "Técnico CAD con experiencia en herramentales y CNC, uniendo práctica de taller con diseño 3D moderno.",
+            about_p1: "He trabajado varios años como matricero y operador CNC, por lo que conozco bien las necesidades reales de producción.",
+            about_p2: "Ahora me centro en CAD 3D avanzado, preparando modelos y planos pensados para una fabricación sencilla y clara.",
+            about_p3: "Me gustan los proyectos donde cuentan la precisión, las soluciones simples y la buena comunicación con producción.",
+
+            portfolio_title: "Proyectos de ejemplo",
+            portfolio_intro: "Tipos de proyectos en los que puedo apoyar a su equipo.",
+            port1_tag: "Herramental",
+            port1_title: "Diseño de útil de montaje",
+            port1_text: "Concepto, modelo 3D y planos para fabricación y ajuste.",
+            port2_tag: "Modificación",
+            port2_title: "Adaptación de pieza existente",
+            port2_text: "Modelo ajustado para una nueva serie con nuevas tolerancias.",
+            port3_tag: "Modernización",
+            port3_title: "Elementos de línea de producción",
+            port3_text: "Estructuras, protecciones y soportes adaptados a la normativa de seguridad.",
+
+            contact_title: "Contacto",
+            contact_intro: "Escriba algunos detalles del proyecto y le responderé con una propuesta.",
+            contact_loc: "Con base en Purfleet-on-Thames, Reino Unido (posible trabajo remoto).",
+            contact_email_label: "Email:",
+            contact_phone: "Teléfono (Reino Unido): ",
+            contact_time: "Suelo responder en menos de 24 h en días laborables.",
+
+            form_name_label: "Nombre / empresa",
+            form_name_ph: "Introduzca sus datos de contacto",
+            form_email_label: "Correo electrónico",
+            form_email_ph: "Su correo",
+            form_msg_label: "Descripción del proyecto",
+            form_msg_ph: "Describa brevemente lo que necesita...",
+            form_btn: "Enviar consulta",
+
+            footer_text: "Todos los derechos reservados."
+        },
+
+        pt: {
+            nav_start: "Início",
+            nav_services: "Serviços",
+            nav_why: "Por que eu",
+            nav_about: "Sobre mim",
+            nav_portfolio: "Portfólio",
+            nav_contact: "Contato",
+
+            hero_title: "Precisão em cada detalhe",
+            hero_subtitle: "Modelos 3D, desenhos técnicos e suporte de projeto para a indústria mecânica.",
+            hero_cta: "Pedir orçamento",
+
+            services_title: "Serviços CAD 3D",
+            services_intro: "Projeto mecânico, modelagem 3D de peças e documentação pronta para produção.",
+
+            service1_title: "Modelagem 3D",
+            service1_text: "Modelos precisos de peças e conjuntos prontos para fabricação.",
+            service2_title: "Desenhos técnicos",
+            service2_text: "Documentação 2D com cotas, tolerâncias e acabamento superficial.",
+            service3_title: "Modificações e melhorias",
+            service3_text: "Atualização de projetos existentes e otimização para o processo produtivo.",
+
+            why_title: "Por que Zed Precision CAD",
+            why_intro: "Experiência prática em ferramentaria combinada com CAD moderno.",
+            why_paragraph: "Os projetos são pensados para usinagem, montagem e manutenção.",
+            why_point1: "Experiência em ferramentaria e mecânica",
+            why_point2: "Documentação clara para produção e qualidade",
+            why_point3: "Parcerias flexíveis, sob demanda ou contínuas",
+            why_point4: "Comunicação em polonês e inglês",
+            why_highlight_title: "Qualidade sem compromissos",
+            why_highlight_text: "Soluções simples e repetíveis, fáceis de implementar na linha de produção.",
+
+            about_title: "Sobre mim",
+            about_intro: "Técnico CAD com experiência em ferramentaria e CNC, unindo prática de fábrica com projeto 3D moderno.",
+            about_p1: "Trabalhei vários anos como ferramenteiro e operador CNC, entendendo bem as necessidades reais da produção.",
+            about_p2: "Hoje foco em CAD 3D avançado, criando modelos e desenhos pensados para fabricação rápida e confiável.",
+            about_p3: "Gosto de projetos em que a precisão, soluções simples e boa comunicação com a produção são prioridade.",
+
+            portfolio_title: "Projetos exemplo",
+            portfolio_intro: "Alguns tipos de projetos nos quais posso apoiar a sua equipe.",
+            port1_tag: "Ferramentaria",
+            port1_title: "Projeto de dispositivo de montagem",
+            port1_text: "Conceito, modelo 3D e desenhos completos para fabricação e ajuste.",
+            port2_tag: "Modificação",
+            port2_title: "Adaptação de peça existente",
+            port2_text: "Modelo ajustado para nova série com novas tolerâncias.",
+            port3_tag: "Modernização",
+            port3_title: "Componentes de linha de produção",
+            port3_text: "Estruturas, proteções e suportes conforme normas de segurança.",
+
+            contact_title: "Contato",
+            contact_intro: "Envie alguns detalhes do projeto e retornarei com uma proposta.",
+            contact_loc: "Baseado em Purfleet-on-Thames, Reino Unido (trabalho remoto possível).",
+            contact_email_label: "Email:",
+            contact_phone: "Telefone (Reino Unido): ",
+            contact_time: "Normalmente respondo em até 24 horas úteis.",
+
+            form_name_label: "Nome / empresa",
+            form_name_ph: "Insira seus dados de contato",
+            form_email_label: "E-mail",
+            form_email_ph: "Seu e-mail",
+            form_msg_label: "Descrição do projeto",
+            form_msg_ph: "Descreva brevemente o que você precisa...",
+            form_btn: "Enviar pedido",
+
+            footer_text: "Todos os direitos reservados."
+        },
+
+        de: {
+            nav_start: "Start",
+            nav_services: "Leistungen",
+            nav_why: "Warum ich",
+            nav_about: "Über mich",
+            nav_portfolio: "Portfolio",
+            nav_contact: "Kontakt",
+
+            hero_title: "Präzision in jedem Detail",
+            hero_subtitle: "Professionelle 3D-Modelle, technische Zeichnungen und Konstruktionssupport für Maschinenbau und Produktion.",
+            hero_cta: "Angebot anfragen",
+
+            services_title: "3D-CAD-Dienstleistungen",
+            services_intro: "Mechanische Konstruktion, 3D-Modellierung von Teilen und Baugruppen sowie fertigungsgerechte Zeichnungen.",
+
+            service1_title: "3D-Modellierung",
+            service1_text: "Genaue Modelle von Teilen und Baugruppen, bereit für die Fertigung.",
+            service2_title: "Technische Zeichnungen",
+            service2_text: "Vollständige 2D-Dokumentation mit Bemaßung, Toleranzen und Oberflächenangaben.",
+            service3_title: "Änderungen und Optimierung",
+            service3_text: "Überarbeitung bestehender Konstruktionen und Anpassung an Ihren Fertigungsprozess.",
+
+            why_title: "Warum Zed Precision CAD",
+            why_intro: "Praktische Erfahrung in der Werkzeugfertigung kombiniert mit modernen CAD-Kenntnissen.",
+            why_paragraph: "Konstruktionen werden im Hinblick auf Bearbeitung, Montage und Wartung ausgelegt.",
+            why_point1: "Erfahrung im Werkzeugbau und Maschinenbau",
+            why_point2: "Übersichtliche Zeichnungen für Produktion und Qualität",
+            why_point3: "Flexible Zusammenarbeit nach Bedarf",
+            why_point4: "Kommunikation auf Polnisch und Englisch",
+            why_highlight_title: "Qualität ohne Kompromisse",
+            why_highlight_text: "Einfache, robuste und wiederholbare Lösungen, die sich leicht umsetzen lassen.",
+
+            about_title: "Über mich",
+            about_intro: "CAD-Techniker mit Erfahrung im Werkzeugbau und an CNC-Maschinen, der Werkstattpraxis mit modernem 3D-Design verbindet.",
+            about_p1: "Ich habe mehrere Jahre als Werkzeugmacher und CNC-Bediener gearbeitet und kenne daher die Anforderungen der Produktion sehr gut.",
+            about_p2: "Heute konzentriere ich mich auf fortgeschrittenes 3D-CAD und erstelle Modelle und Zeichnungen, die leicht zu fertigen und gut verständlich sind.",
+            about_p3: "Ich arbeite gern an Projekten, bei denen Präzision, einfache Lösungen und eine gute Kommunikation mit der Fertigung wichtig sind.",
+
+            portfolio_title: "Beispielprojekte",
+            portfolio_intro: "Typische Projekte, bei denen ich Ihr Team unterstützen kann.",
+            port1_tag: "Vorrichtungen",
+            port1_title: "Konstruktion einer Montagevorrichtung",
+            port1_text: "Konzept, 3D-Modell und Zeichnungen für Fertigung und Einstellung.",
+            port2_tag: "Anpassung",
+            port2_title: "Anpassung eines bestehenden Teils",
+            port2_text: "Überarbeitetes Modell für eine neue Serie mit geänderten Maßen.",
+            port3_tag: "Modernisierung",
+            port3_title: "Komponenten für Fertigungslinien",
+            port3_text: "Stahlkonstruktionen, Abdeckungen und Halterungen nach aktuellen Sicherheitsanforderungen.",
+
+            contact_title: "Kontakt",
+            contact_intro: "Schreiben Sie kurz zu Ihrem Projekt, ich melde mich mit einem Vorschlag.",
+            contact_loc: "Mit Sitz in Purfleet-on-Thames, UK (Remote-Arbeit möglich).",
+            contact_email_label: "E-Mail:",
+            contact_phone: "Telefon (UK): ",
+            contact_time: "In der Regel antworte ich innerhalb von 24 Stunden an Werktagen.",
+
+            form_name_label: "Name / Firma",
+            form_name_ph: "Kontaktdaten eingeben",
+            form_email_label: "E-Mail-Adresse",
+            form_email_ph: "Ihre E-Mail",
+            form_msg_label: "Projektbeschreibung",
+            form_msg_ph: "Beschreiben Sie kurz, was Sie benötigen...",
+            form_btn: "Anfrage senden",
+
+            footer_text: "Alle Rechte vorbehalten."
+        }
+    };
+
+    function setLanguage(lang) {
+        const dict = translations[lang] || translations.en;
+
+        document.querySelectorAll("[data-key]").forEach(el => {
+            const key = el.getAttribute("data-key");
+            if (dict[key]) el.textContent = dict[key];
+        });
+
+        document.querySelectorAll("[data-key-placeholder]").forEach(el => {
+            const key = el.getAttribute("data-key-placeholder");
+            if (dict[key]) el.placeholder = dict[key];
+        });
+
+        // footer tekst
+        const footerSpan = document.querySelector("footer [data-key='footer_text']");
+        if (footerSpan && dict.footer_text) {
+            footerSpan.textContent = dict.footer_text;
+        }
+
+        // etykieta "Phone" w kontakcie (link z numerem zostaje ten sam)
+        const phoneLabel = document.querySelector("[data-key='contact_phone']");
+        if (phoneLabel && dict.contact_phone) {
+            // wewnątrz mamy ikonę + tekst + link; podmieniamy tylko tekst przed linkiem
+            const link = phoneLabel.querySelector("a");
+            phoneLabel.innerHTML = '<i class="fa-solid fa-phone"></i> ' + dict.contact_phone;
+            if (link) {
+                phoneLabel.appendChild(link);
+            } else {
+                const a = document.createElement("a");
+                a.href = "tel:+447401099997";
+                a.textContent = "07401 099 997";
+                phoneLabel.appendChild(a);
+            }
+        }
+    }
+
+    document.getElementById("language-select").addEventListener("change", (e) => {
+        setLanguage(e.target.value);
+    });
+
+    // startowo EN
+    setLanguage("en");
+
+    const yearEl = document.getElementById("year");
+    if (yearEl) yearEl.textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
