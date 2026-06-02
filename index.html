@@ -619,17 +619,23 @@
             </p>
         </div>
 
-        <form class="contact-form" method="post" action="https://zedprecisioncad.co.uk/api/contact">
-  <label for="name" data-key="formnamelabel">Name company</label>
-  <input type="text" id="name" name="name" placeholder="Enter your contact details" data-key-placeholder="formnameph">
+        <form action="https://formsubmit.co/contact@zedprecisioncad.co.uk" method="POST">
+  <div>
+    <label>Name / company</label>
+    <input type="text" name="name" placeholder="Name / company" required>
+  </div>
   
-  <label for="email" data-key="formemaillabel">Email address</label>
-  <input type="email" id="email" name="email" placeholder="Your email" data-key-placeholder="formemailph">
-
-  <label for="message" data-key="formmsglabel">Project description</label>
-  <textarea id="message" name="message" rows="5" placeholder="Briefly describe what you need..." data-key-placeholder="formmsgph"></textarea>
-
-  <button type="submit" data-key="formbtn">Send enquiry</button>
+  <div>
+    <label>Email address</label>
+    <input type="email" name="email" placeholder="Email address" required>
+  </div>
+  
+  <div>
+    <label>Project description</label>
+    <textarea name="message" placeholder="Project description" required></textarea>
+  </div>
+  
+  <button type="submit">SEND ENQUIRY</button>
 </form>
     </div>
 </section>
