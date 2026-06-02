@@ -619,23 +619,22 @@
             </p>
         </div>
 
-        <form action="https://formsubmit.co/contact@zedprecisioncad.co.uk" method="POST">
-  <div>
-    <label>Name / company</label>
-    <input type="text" name="name" placeholder="Name / company" required>
-  </div>
-  
-  <div>
-    <label>Email address</label>
-    <input type="email" name="email" placeholder="Email address" required>
-  </div>
-  
-  <div>
-    <label>Project description</label>
-    <textarea name="message" placeholder="Project description" required></textarea>
-  </div>
-  
-  <button type="submit">SEND ENQUIRY</button>
+        <form action="https://formsubmit.co/contact@zedprecisioncad.co.uk" method="POST" class="contact-form">
+    <!-- ustawienia Formsubmit -->
+    <input type="hidden" name="_next" value="https://zedprecisioncad.co.uk/">
+    <input type="hidden" name="_subject" value="New enquiry from Zed Precision CAD">
+    <input type="hidden" name="_captcha" value="false">
+
+    <label for="name">Name / company</label>
+    <input type="text" id="name" name="name" placeholder="Name / company" required>
+
+    <label for="email">Email address</label>
+    <input type="email" id="email" name="email" placeholder="Email address" required>
+
+    <label for="message">Project description</label>
+    <textarea id="message" name="message" placeholder="Project description" rows="5" required></textarea>
+
+    <button type="submit">SEND ENQUIRY</button>
 </form>
     </div>
 </section>
